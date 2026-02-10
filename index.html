@@ -46,7 +46,7 @@
 
     section {
       scroll-margin-top: 95px;
-      margin-top: 90px;
+      margin-top: 80px;
     }
 
     /* Animated Gradient Background */
@@ -170,6 +170,35 @@
       color: white;
     }
 
+    /* Mobile Nav Button */
+    .menu-btn {
+      display: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 14px;
+      padding: 18px 20px;
+      border-top: 1px solid var(--line);
+      background: rgba(6, 8, 19, 0.85);
+      backdrop-filter: blur(14px);
+    }
+
+    .mobile-menu a {
+      color: var(--muted);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .mobile-menu a:hover {
+      color: white;
+    }
+
     /* Layout */
     .container {
       max-width: 1150px;
@@ -220,7 +249,7 @@
 
     .typing {
       font-size: 18px;
-      font-weight: 700;
+      font-weight: 600;
       color: rgba(234,240,255,0.95);
       margin-bottom: 16px;
       min-height: 24px;
@@ -335,7 +364,7 @@
     .info a {
       color: var(--text);
       text-decoration: none;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .info a:hover {
@@ -344,7 +373,7 @@
 
     /* Section Titles */
     .section-title {
-      font-size: 30px;
+      font-size: 28px;
       margin-bottom: 10px;
       font-weight: 900;
     }
@@ -354,7 +383,7 @@
       margin-bottom: 28px;
       line-height: 1.7;
       font-size: 15px;
-      max-width: 850px;
+      max-width: 800px;
     }
 
     /* Grid */
@@ -400,88 +429,184 @@
       line-height: 1.6;
     }
 
-    /* Highlight Stats */
-    .stats {
+    /* COUNTER SECTION */
+    .counter-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 18px;
     }
 
-    .stat-box {
+    .counter-box {
       background: rgba(255,255,255,0.05);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 20px;
+      padding: 22px;
+      text-align: center;
       transition: 0.25s;
     }
 
-    .stat-box:hover {
-      transform: translateY(-7px);
-      border-color: rgba(124,58,237,0.5);
-      box-shadow: 0 0 25px rgba(124,58,237,0.18);
+    .counter-box:hover {
+      transform: translateY(-6px);
+      border-color: rgba(244,63,94,0.5);
+      box-shadow: 0 0 25px rgba(244,63,94,0.18);
     }
 
-    .stat-number {
-      font-size: 26px;
+    .counter-number {
+      font-size: 34px;
       font-weight: 900;
-      margin-bottom: 6px;
       background: linear-gradient(90deg, var(--secondary), var(--primary), var(--accent));
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      color: transparent;
     }
 
-    .stat-label {
-      font-size: 13px;
+    .counter-label {
+      margin-top: 8px;
+      font-size: 14px;
       color: var(--muted);
-      line-height: 1.5;
       font-weight: 700;
     }
 
-    /* Case Studies */
-    .case-card {
+    /* SLIDER SECTION */
+    .slider-wrapper {
+      position: relative;
+      overflow: hidden;
       width: 100%;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.05);
       border-radius: var(--radius);
-      padding: 18px;
-      cursor: pointer;
-      transition: 0.25s;
-      text-align: left;
-      color: var(--text);
-      outline: none;
     }
 
-    .case-card:hover {
-      transform: translateY(-7px);
+    .slider {
+      display: flex;
+      transition: transform 0.6s ease;
+      gap: 18px;
+      will-change: transform;
+    }
+
+    .slide {
+      min-width: 320px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      transition: 0.25s;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .slide:hover {
+      transform: translateY(-6px);
       border-color: rgba(6,182,212,0.45);
       box-shadow: 0 0 25px rgba(6,182,212,0.18);
     }
 
-    .case-card i {
-      font-size: 22px;
-      color: var(--secondary);
+    .slide img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 14px;
       margin-bottom: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
-    .case-card h4 {
+    .slide h4 {
       font-size: 16px;
-      margin-bottom: 8px;
       font-weight: 900;
+      margin-bottom: 6px;
     }
 
-    .case-card p {
+    .slide p {
       color: var(--muted);
       font-size: 14px;
       line-height: 1.6;
     }
 
-    .case-meta {
-      margin-top: 10px;
-      font-size: 12px;
-      color: #D7E2FF;
+    /* CERTIFICATE PDF CARD BUTTONS */
+    .cert-btns {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .cert-btn {
+      flex: 1;
+      text-align: center;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: white;
       font-weight: 800;
+      font-size: 13px;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .cert-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.10);
+    }
+
+    .cert-btn.primary {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border: none;
+    }
+
+    .slider-controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .slider-btn {
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      cursor: pointer;
+      font-weight: 800;
+      transition: 0.2s;
+    }
+
+    .slider-btn:hover {
+      background: rgba(255,255,255,0.10);
+      transform: translateY(-2px);
+    }
+
+    /* TESTIMONIAL */
+    .testimonial-card {
+      min-width: 320px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: 0.25s;
+      flex-shrink: 0;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(124,58,237,0.5);
+      box-shadow: 0 0 25px rgba(124,58,237,0.18);
+    }
+
+    .testimonial-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .testimonial-card h4 {
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .testimonial-card span {
+      font-size: 13px;
+      color: var(--muted);
     }
 
     /* Experience */
@@ -492,7 +617,7 @@
     }
 
     .job {
-      padding: 22px;
+      padding: 20px;
       border-radius: var(--radius);
       background: rgba(255,255,255,0.05);
       border: 1px solid var(--line);
@@ -514,7 +639,6 @@
     .job span {
       font-size: 13px;
       color: var(--muted);
-      font-weight: 700;
     }
 
     .job ul {
@@ -541,76 +665,12 @@
       color: var(--muted);
       transition: 0.2s;
       cursor: default;
-      font-weight: 700;
     }
 
     .pill:hover {
       color: white;
       border-color: rgba(6,182,212,0.5);
       box-shadow: 0 0 18px rgba(6,182,212,0.18);
-      transform: translateY(-2px);
-    }
-
-    /* Dialog Modal */
-    dialog.modal {
-      width: 100%;
-      max-width: 850px;
-      border-radius: 18px;
-      background: rgba(15, 18, 35, 0.95);
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 22px;
-      box-shadow: 0 0 45px rgba(0,0,0,0.75);
-      animation: pop 0.25s ease;
-      color: var(--text);
-      position: relative;
-    }
-
-    dialog::backdrop {
-      background: rgba(0,0,0,0.65);
-      backdrop-filter: blur(10px);
-    }
-
-    @keyframes pop {
-      from { transform: scale(0.95); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    .modal h2 {
-      font-size: 20px;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-
-    .modal p {
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 14px;
-      margin-bottom: 14px;
-    }
-
-    .modal ul {
-      padding-left: 18px;
-      color: var(--muted);
-      line-height: 1.7;
-      font-size: 14px;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(255,255,255,0.92);
-      color: #0B0F1A;
-      padding: 8px 10px;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: 0.2s;
-      font-weight: 900;
-    }
-
-    .close-btn:hover {
-      background: rgba(255,255,255,1);
       transform: translateY(-2px);
     }
 
@@ -635,6 +695,7 @@
       margin-top: 80px;
     }
 
+    /* RESPONSIVE */
     @media(max-width: 950px) {
       .hero {
         grid-template-columns: 1fr;
@@ -648,12 +709,30 @@
         grid-template-columns: 1fr;
       }
 
-      .stats {
+      .counter-grid {
         grid-template-columns: 1fr 1fr;
       }
 
       .nav-links {
         display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .slide, .testimonial-card {
+        min-width: 85%;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .counter-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 34px;
       }
     }
   </style>
@@ -674,14 +753,31 @@
 
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#highlights">Highlights</a>
-        <a href="#case-studies">Case Studies</a>
+        <a href="#numbers">Results</a>
+        <a href="#projects">Projects</a>
+        <a href="#testimonials">Testimonials</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#certifications">Certifications</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </div>
+
+      <div class="menu-btn" id="menuBtn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">About</a>
+      <a href="#numbers">Results</a>
+      <a href="#projects">Projects</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
 
@@ -697,15 +793,15 @@
 
         <h1>
           Hi, I’m <span>Akhil Chinta</span><br>
-          <span style="font-size: 0.85em;">I scale campaigns with data.</span>
+          <span style="font-size: 0.85em;">I build growth systems.</span>
         </h1>
 
         <div class="typing" id="typingText"></div>
 
         <p>
           Performance Marketing Manager skilled in <b>Google Ads</b>, <b>Meta Ads</b>,
-          <b>YouTube SEO</b>, and <b>GA4 Measurement</b>.  
-          I combine marketing strategy + analytics thinking to drive ROI and scalable growth systems.
+          <b>YouTube SEO</b>, and <b>GA4 Measurement</b>. I optimize campaigns with a strong
+          analytics foundation from my Data Analyst experience at Wipro.
         </p>
 
         <div class="cta">
@@ -713,7 +809,7 @@
             <i class="fa-solid fa-paper-plane"></i> Hire Me
           </a>
 
-          <a class="btn outline" href="https://linkedin.com/in/akhil-chinta-94b033181" target="_blank" rel="noopener noreferrer">
+          <a class="btn outline" href="https://linkedin.com/in/akhil-chinta-94b033181" target="_blank">
             <i class="fa-brands fa-linkedin"></i> LinkedIn
           </a>
 
@@ -732,7 +828,7 @@
           <div><i class="fa-solid fa-phone"></i> <a href="tel:+919553425673">+91 95534 25673</a></div>
           <div><i class="fa-solid fa-envelope"></i> <a href="mailto:chakhil220@gmail.com">chakhil220@gmail.com</a></div>
           <div><i class="fa-brands fa-linkedin"></i>
-            <a href="https://linkedin.com/in/akhil-chinta-94b033181" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com/in/akhil-chinta-94b033181" target="_blank">
               linkedin.com/in/akhil-chinta
             </a>
           </div>
@@ -742,109 +838,169 @@
 
     <!-- ABOUT -->
     <section id="about" class="reveal">
-      <h2 class="section-title">About Me</h2>
+      <h2 class="section-title">Profile</h2>
       <p class="section-sub">
-        I’m a performance marketer who focuses on <b>ROI-first growth</b>.  
-        My strength is combining campaign execution with analytics-driven decisions.
-        I build ad systems that scale using <b>tracking, creative testing, funnel optimization, and retargeting</b>.
+        I specialize in performance marketing campaigns focused on measurable ROI.
+        I combine marketing creativity with analytics thinking to optimize conversions,
+        improve retention, and build scalable paid acquisition systems.
       </p>
 
       <div class="grid">
         <div class="card">
           <i class="fa-solid fa-bullseye"></i>
-          <h4>ROI Focused Execution</h4>
-          <p>I optimize campaigns based on CPA, ROAS, CTR, CVR and conversion data, not guesswork.</p>
+          <h4>ROI Driven Growth</h4>
+          <p>Scaling performance campaigns using structured testing, optimization, and retargeting strategy.</p>
         </div>
 
         <div class="card">
           <i class="fa-solid fa-chart-simple"></i>
-          <h4>Measurement & Analytics</h4>
-          <p>GA4 tracking, event setup, conversion attribution, and reporting dashboards for decision making.</p>
+          <h4>Analytics + Measurement</h4>
+          <p>Tracking and reporting using GA4, conversion tracking, KPI dashboards, and performance insights.</p>
         </div>
 
         <div class="card">
           <i class="fa-brands fa-youtube"></i>
-          <h4>YouTube Growth Strategy</h4>
-          <p>CTR improvement, retention optimization, SEO strategy and Creator Studio analytics insights.</p>
+          <h4>YouTube Growth</h4>
+          <p>CTR optimization, retention analysis, SEO improvement, and creator studio performance strategy.</p>
         </div>
       </div>
     </section>
 
-    <!-- HIGHLIGHTS -->
-    <section id="highlights" class="reveal">
-      <h2 class="section-title">Growth Highlights</h2>
+    <!-- NUMBERS -->
+    <section id="numbers" class="reveal">
+      <h2 class="section-title">Results That Matter</h2>
       <p class="section-sub">
-        A snapshot of what I focus on: growth metrics, optimization, and scalable campaign systems.
+        Some measurable impact from my marketing and growth projects (sample numbers for now).
       </p>
 
-      <div class="stats">
-        <div class="stat-box">
-          <div class="stat-number">ROI</div>
-          <div class="stat-label">Campaign optimization mindset focused on profitability</div>
+      <div class="counter-grid">
+        <div class="counter-box">
+          <div class="counter-number" data-target="250">0</div>
+          <div class="counter-label">Campaigns Optimized</div>
         </div>
 
-        <div class="stat-box">
-          <div class="stat-number">GA4</div>
-          <div class="stat-label">Tracking + measurement expertise with conversion reporting</div>
+        <div class="counter-box">
+          <div class="counter-number" data-target="120">0</div>
+          <div class="counter-label">ROI Improvements (%)</div>
         </div>
 
-        <div class="stat-box">
-          <div class="stat-number">Ads</div>
-          <div class="stat-label">Google Ads + Meta Ads scaling and retargeting funnels</div>
+        <div class="counter-box">
+          <div class="counter-number" data-target="50">0</div>
+          <div class="counter-label">Ads Scaled Successfully</div>
         </div>
 
-        <div class="stat-box">
-          <div class="stat-number">SEO</div>
-          <div class="stat-label">YouTube SEO + retention strategy for channel growth</div>
+        <div class="counter-box">
+          <div class="counter-number" data-target="30">0</div>
+          <div class="counter-label">Landing Pages Tested</div>
         </div>
       </div>
     </section>
 
-    <!-- CASE STUDIES -->
-    <section id="case-studies" class="reveal">
-      <h2 class="section-title">Featured Case Studies</h2>
+    <!-- PROJECTS SLIDER -->
+    <section id="projects" class="reveal">
+      <h2 class="section-title">Projects</h2>
       <p class="section-sub">
-        Portfolio-style projects that showcase my campaign strategy, analytics, and optimization process.
+        Real growth experiments and performance campaigns. (Sample projects, replace later)
       </p>
 
-      <div class="grid">
+      <div class="slider-wrapper">
+        <div class="slider" id="projectSlider">
 
-        <button class="case-card" onclick="openModal('case1')">
-          <i class="fa-solid fa-video"></i>
-          <h4>YouTube Growth Optimization</h4>
-          <p>Improved CTR, retention and engagement using SEO + Creator Studio insights.</p>
-          <div class="case-meta">SEO • CTR • Retention • Watch-Time</div>
+          <div class="slide">
+            <img src="https://picsum.photos/500/300?random=11" alt="Project 1">
+            <h4>YouTube SEO Growth</h4>
+            <p>Improved CTR and retention by optimizing thumbnails, titles, and descriptions.</p>
+          </div>
+
+          <div class="slide">
+            <img src="https://picsum.photos/500/300?random=12" alt="Project 2">
+            <h4>Meta Ads Retargeting Funnel</h4>
+            <p>Built a retargeting strategy to improve conversions and reduce CPA.</p>
+          </div>
+
+          <div class="slide">
+            <img src="https://picsum.photos/500/300?random=13" alt="Project 3">
+            <h4>Google Ads Performance Scaling</h4>
+            <p>Scaled search campaigns with A/B testing, keyword optimization and reporting.</p>
+          </div>
+
+          <div class="slide">
+            <img src="https://picsum.photos/500/300?random=14" alt="Project 4">
+            <h4>Landing Page CRO</h4>
+            <p>Improved landing page conversion by layout testing and CTA improvements.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <button class="slider-btn" onclick="manualSlide('project', -1)">
+          <i class="fa-solid fa-arrow-left"></i>
         </button>
-
-        <button class="case-card" onclick="openModal('case2')">
-          <i class="fa-brands fa-google"></i>
-          <h4>Google Ads Campaign Scaling</h4>
-          <p>Search + video campaigns optimized using tracking, keywords and conversion signals.</p>
-          <div class="case-meta">Google Ads • Search • Video • ROI</div>
+        <button class="slider-btn" onclick="manualSlide('project', 1)">
+          <i class="fa-solid fa-arrow-right"></i>
         </button>
+      </div>
+    </section>
 
-        <button class="case-card" onclick="openModal('case3')">
-          <i class="fa-brands fa-facebook"></i>
-          <h4>Meta Ads Retargeting Funnel</h4>
-          <p>Designed retargeting audiences and optimized creatives for better conversions.</p>
-          <div class="case-meta">Meta Ads • Retargeting • Funnel Strategy</div>
+    <!-- TESTIMONIALS SLIDER -->
+    <section id="testimonials" class="reveal">
+      <h2 class="section-title">Testimonials</h2>
+      <p class="section-sub">
+        Feedback from people I worked with. (Sample testimonials, replace later)
+      </p>
+
+      <div class="slider-wrapper">
+        <div class="slider" id="testimonialSlider">
+
+          <div class="testimonial-card">
+            <p>"Akhil improved our YouTube performance significantly. His SEO strategy and CTR optimization really worked."</p>
+            <h4>Client Name</h4>
+            <span>YouTube Brand Owner</span>
+          </div>
+
+          <div class="testimonial-card">
+            <p>"He understands analytics deeply and always focuses on ROI. Strong Meta Ads and Google Ads execution."</p>
+            <h4>Marketing Manager</h4>
+            <span>Startup Company</span>
+          </div>
+
+          <div class="testimonial-card">
+            <p>"His tracking setup and GA4 reporting helped us measure conversions correctly and scale faster."</p>
+            <h4>Business Partner</h4>
+            <span>Growth Project</span>
+          </div>
+
+          <div class="testimonial-card">
+            <p>"Professional, fast, and very smart with optimization. He brings results not just reports."</p>
+            <h4>Team Lead</h4>
+            <span>Digital Media Team</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <button class="slider-btn" onclick="manualSlide('testimonial', -1)">
+          <i class="fa-solid fa-arrow-left"></i>
         </button>
-
+        <button class="slider-btn" onclick="manualSlide('testimonial', 1)">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </div>
     </section>
 
     <!-- SKILLS -->
     <section id="skills" class="reveal">
-      <h2 class="section-title">Skill Stack</h2>
+      <h2 class="section-title">Skills</h2>
       <p class="section-sub">
-        The tools and skills I use daily to manage and scale performance marketing campaigns.
+        Tools and skillsets I use to plan, launch, optimize and scale campaigns.
       </p>
 
       <div class="tags">
         <div class="pill">Google Ads</div>
         <div class="pill">Meta Ads</div>
         <div class="pill">YouTube SEO</div>
-        <div class="pill">Campaign Optimization</div>
         <div class="pill">Retargeting Strategy</div>
         <div class="pill">Landing Page Optimization</div>
         <div class="pill">GA4</div>
@@ -855,16 +1011,16 @@
         <div class="pill">SQL</div>
         <div class="pill">Power BI</div>
         <div class="pill">Tableau</div>
-        <div class="pill">Keyword Research</div>
+        <div class="pill">Campaign Optimization</div>
         <div class="pill">Audience Research</div>
       </div>
     </section>
 
     <!-- EXPERIENCE -->
     <section id="experience" class="reveal">
-      <h2 class="section-title">Career Timeline</h2>
+      <h2 class="section-title">Experience</h2>
       <p class="section-sub">
-        A quick view of my journey across performance marketing and analytics.
+        My professional journey across marketing and analytics.
       </p>
 
       <div class="timeline">
@@ -874,11 +1030,12 @@
           <span>Dec 2024 – Present</span>
 
           <ul>
-            <li>YouTube SEO strategy: CTR, retention, watch-time optimization</li>
-            <li>Google Ads + Meta Ads campaign setup, scaling and optimization</li>
-            <li>Traffic, video and retargeting campaigns</li>
-            <li>Landing page optimization for conversion improvement</li>
-            <li>Competitor research + keyword + audience targeting</li>
+            <li>YouTube growth strategy: SEO, CTR, retention, watch-time optimization</li>
+            <li>Google Ads & Meta Ads campaign setup, scaling, and optimization</li>
+            <li>Video campaigns, traffic campaigns, and retargeting funnels</li>
+            <li>Landing page optimization for conversions</li>
+            <li>Creator Studio analysis: engagement, retention, CTR, audience insights</li>
+            <li>Competitor research, keyword research, and audience targeting</li>
           </ul>
         </div>
 
@@ -887,84 +1044,147 @@
           <span>Mar 2022 – Nov 2024</span>
 
           <ul>
-            <li>Built dashboards using Python, SQL, Power BI, Tableau</li>
-            <li>Operational data analysis + reporting automation</li>
-            <li>Delivered performance insights for business improvements</li>
-            <li>Improved workflow efficiency using automation</li>
+            <li>Built automated dashboards using Python, SQL, Power BI, Tableau</li>
+            <li>Performed operational data analysis and reporting automation</li>
+            <li>Generated business insights for performance improvements</li>
+            <li>Improved workflow efficiency through data automation</li>
           </ul>
         </div>
 
       </div>
     </section>
 
-    <!-- CERTIFICATIONS -->
+    <!-- CERTIFICATIONS PDF SLIDER (UPDATED) -->
     <section id="certifications" class="reveal">
       <h2 class="section-title">Certifications</h2>
       <p class="section-sub">
-        Verified certifications that strengthen my performance marketing expertise.
+        Verified certifications (PDF proof). Replace the sample PDF links with your real files.
       </p>
 
-      <div class="grid">
-        <div class="card">
-          <i class="fa-brands fa-google"></i>
-          <h4>Google Analytics 4 (GA4)</h4>
-          <p>Certified in GA4 tracking, reporting and performance insights.</p>
-        </div>
+      <div class="slider-wrapper">
+        <div class="slider" id="certificationSlider">
 
-        <div class="card">
-          <i class="fa-brands fa-google"></i>
-          <h4>Google Ads Measurement</h4>
-          <p>Conversion tracking, attribution and measurement optimization.</p>
-        </div>
+          <div class="slide">
+            <img src="https://picsum.photos/500/300?random=51" alt="Certificate">
+            <h4>Google Analytics 4 (GA4)</h4>
+            <p>Certification for GA4 reporting, tracking, and performance insights.</p>
 
-        <div class="card">
-          <i class="fa-brands fa-google"></i>
-          <h4>Google Ads Search & Video</h4>
-          <p>Search campaign strategy + video campaign optimization expertise.</p>
-        </div>
+            <div class="cert-btns">
+              <a class="cert-btn primary" href="./certificates/ga4.pdf" target="_blank">
+                <i class="fa-solid fa-eye"></i> View PDF
+              </a>
+              <a class="cert-btn" href="./certificates/ga4.pdf" download>
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </div>
+          </div>
 
-        <div class="card">
-          <i class="fa-brands fa-hubspot"></i>
-          <h4>HubSpot Digital Marketing</h4>
-          <p>Certified in digital marketing fundamentals and inbound strategy.</p>
+          <div class="slide">
+            <img src="https://picsum.photos/500/300?random=52" alt="Certificate">
+            <h4>Google Ads Search</h4>
+            <p>Certified in Search Ads setup, keyword targeting, bidding & scaling.</p>
+
+            <div class="cert-btns">
+              <a class="cert-btn primary" href="./certificates/search.pdf" target="_blank">
+                <i class="fa-solid fa-eye"></i> View PDF
+              </a>
+              <a class="cert-btn" href="./certificates/search.pdf" download>
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img src="https://picsum.photos/500/300?random=53" alt="Certificate">
+            <h4>Google Ads Video</h4>
+            <p>Certified in YouTube Ads targeting, optimization and scaling strategy.</p>
+
+            <div class="cert-btns">
+              <a class="cert-btn primary" href="./certificates/video.pdf" target="_blank">
+                <i class="fa-solid fa-eye"></i> View PDF
+              </a>
+              <a class="cert-btn" href="./certificates/video.pdf" download>
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img src="https://picsum.photos/500/300?random=54" alt="Certificate">
+            <h4>Google Ads Measurement</h4>
+            <p>Certified in conversion tracking, attribution and measurement optimization.</p>
+
+            <div class="cert-btns">
+              <a class="cert-btn primary" href="./certificates/measurement.pdf" target="_blank">
+                <i class="fa-solid fa-eye"></i> View PDF
+              </a>
+              <a class="cert-btn" href="./certificates/measurement.pdf" download>
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </div>
+          </div>
+
+          <div class="slide">
+            <img src="https://picsum.photos/500/300?random=55" alt="Certificate">
+            <h4>HubSpot Digital Marketing</h4>
+            <p>Certified in digital marketing fundamentals and inbound strategy.</p>
+
+            <div class="cert-btns">
+              <a class="cert-btn primary" href="./certificates/hubspot.pdf" target="_blank">
+                <i class="fa-solid fa-eye"></i> View PDF
+              </a>
+              <a class="cert-btn" href="./certificates/hubspot.pdf" download>
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </div>
+          </div>
+
         </div>
+      </div>
+
+      <div class="slider-controls">
+        <button class="slider-btn" onclick="manualSlide('certification', -1)">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button class="slider-btn" onclick="manualSlide('certification', 1)">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </div>
     </section>
 
-    <!-- EDUCATION -->
+    <!-- EDUCATION (LAST BEFORE CONTACT) -->
     <section id="education" class="reveal">
       <h2 class="section-title">Education</h2>
       <p class="section-sub">
-        Academic foundation that built my technical and analytical background.
+        Academic background supporting my technical + analytics foundation.
       </p>
 
       <div class="grid">
         <div class="card">
           <i class="fa-solid fa-graduation-cap"></i>
           <h4>B.Tech – Computer Science & Engineering</h4>
-          <p>Bharath Institute of Higher Education and Research (2021) | CGPA: 7.2</p>
+          <p>Bharath Institute of Higher Education and Research (BIHER) | 2021 | CGPA: 7.2</p>
         </div>
 
         <div class="card">
           <i class="fa-solid fa-school"></i>
-          <h4>MPC – Sri Chaitanya Junior College</h4>
-          <p>(2017) | GPA: 8.0</p>
+          <h4>MPC – Intermediate</h4>
+          <p>Sri Chaitanya Junior College | 2017 | GPA: 8.0</p>
         </div>
 
         <div class="card">
           <i class="fa-solid fa-book"></i>
-          <h4>Class X – Bhashyam Public School</h4>
-          <p>(2015) | GPA: 9.0</p>
+          <h4>Class X</h4>
+          <p>Bhashyam Public School | 2015 | GPA: 9.0</p>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="reveal">
-      <h2 class="section-title">Let’s Work Together</h2>
+      <h2 class="section-title">Contact</h2>
       <p class="section-sub">
-        Want someone who can scale campaigns with strong analytics and ROI focus?  
-        Let’s connect.
+        Let’s connect for work opportunities, collaborations, or growth projects.
       </p>
 
       <div class="grid">
@@ -972,7 +1192,7 @@
           <i class="fa-solid fa-envelope"></i>
           <h4>Email</h4>
           <p>
-            <a style="color:#ffffff;text-decoration:none;font-weight:900;" href="mailto:chakhil220@gmail.com">
+            <a style="color:white;text-decoration:none;font-weight:800;" href="mailto:chakhil220@gmail.com">
               chakhil220@gmail.com
             </a>
           </p>
@@ -982,7 +1202,7 @@
           <i class="fa-brands fa-linkedin"></i>
           <h4>LinkedIn</h4>
           <p>
-            <a style="color:#ffffff;text-decoration:none;font-weight:900;" target="_blank" rel="noopener noreferrer"
+            <a style="color:white;text-decoration:none;font-weight:800;" target="_blank"
               href="https://linkedin.com/in/akhil-chinta-94b033181">
               View Profile
             </a>
@@ -993,7 +1213,7 @@
           <i class="fa-solid fa-phone"></i>
           <h4>Phone</h4>
           <p>
-            <a style="color:#ffffff;text-decoration:none;font-weight:900;" href="tel:+919553425673">
+            <a style="color:white;text-decoration:none;font-weight:800;" href="tel:+919553425673">
               +91 95534 25673
             </a>
           </p>
@@ -1007,58 +1227,17 @@
     © <span id="year"></span> Akhil Chinta • Performance Marketing Portfolio • Hyderabad, India
   </footer>
 
-  <!-- MODALS -->
-  <dialog class="modal" id="case1">
-    <button class="close-btn" onclick="closeModal('case1')">✕</button>
-    <h2>YouTube Growth Optimization</h2>
-    <p>
-      Worked on improving channel performance using SEO strategy, CTR improvements and retention-based optimization.
-    </p>
-    <ul>
-      <li>Keyword research for video titles and descriptions</li>
-      <li>CTR optimization using thumbnails + title testing</li>
-      <li>Retention improvement using hook analysis</li>
-      <li>Creator Studio performance tracking</li>
-    </ul>
-  </dialog>
-
-  <dialog class="modal" id="case2">
-    <button class="close-btn" onclick="closeModal('case2')">✕</button>
-    <h2>Google Ads Campaign Scaling</h2>
-    <p>
-      Managed Google Ads campaigns focused on growth and ROI. Optimized using search intent, tracking and audience targeting.
-    </p>
-    <ul>
-      <li>Search & video campaign optimization</li>
-      <li>Keyword research and bid strategy improvements</li>
-      <li>Conversion tracking setup and measurement</li>
-      <li>Campaign scaling based on performance insights</li>
-    </ul>
-  </dialog>
-
-  <dialog class="modal" id="case3">
-    <button class="close-btn" onclick="closeModal('case3')">✕</button>
-    <h2>Meta Ads Retargeting Funnel</h2>
-    <p>
-      Designed retargeting funnel strategy to increase conversions and reduce cost per lead.
-    </p>
-    <ul>
-      <li>Custom audiences + website visitor retargeting</li>
-      <li>Creative testing and scaling strategy</li>
-      <li>Traffic + conversion campaign structure</li>
-      <li>Performance monitoring and optimization</li>
-    </ul>
-  </dialog>
-
   <script>
     document.getElementById("year").innerText = new Date().getFullYear();
 
+    // Cursor Glow
     const cursorGlow = document.getElementById("cursorGlow");
     document.addEventListener("mousemove", (e) => {
       cursorGlow.style.left = e.clientX + "px";
       cursorGlow.style.top = e.clientY + "px";
     });
 
+    // Typing Effect
     const roles = [
       "Google Ads Specialist ⚡",
       "Meta Ads Performance Marketer 🎯",
@@ -1070,7 +1249,6 @@
     let roleIndex = 0;
     let charIndex = 0;
     let typingForward = true;
-
     const typingElement = document.getElementById("typingText");
 
     function typeEffect() {
@@ -1097,11 +1275,10 @@
 
       setTimeout(typeEffect, typingForward ? 65 : 35);
     }
-
     typeEffect();
 
+    // Reveal Animations
     const reveals = document.querySelectorAll(".reveal");
-
     function revealOnScroll() {
       const windowHeight = window.innerHeight;
 
@@ -1114,17 +1291,133 @@
         }
       }
     }
-
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
 
-    function openModal(id) {
-      document.getElementById(id).showModal();
+    // Mobile Menu
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.style.display = mobileMenu.style.display === "flex" ? "none" : "flex";
+    });
+
+    // Counter Animation
+    const counters = document.querySelectorAll(".counter-number");
+    let counterStarted = false;
+
+    function startCounters() {
+      if (counterStarted) return;
+      counterStarted = true;
+
+      counters.forEach(counter => {
+        const target = +counter.getAttribute("data-target");
+        let count = 0;
+        const speed = target / 80;
+
+        const updateCount = () => {
+          count += speed;
+          if (count < target) {
+            counter.innerText = Math.floor(count);
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
     }
 
-    function closeModal(id) {
-      document.getElementById(id).close();
+    window.addEventListener("scroll", () => {
+      const numbersSection = document.getElementById("numbers");
+      const rect = numbersSection.getBoundingClientRect();
+
+      if (rect.top < window.innerHeight - 120) {
+        startCounters();
+      }
+    });
+
+    /* ===============================
+       INFINITE SLIDER SYSTEM (REAL LOOP)
+    =============================== */
+
+    function setupInfiniteSlider(sliderId) {
+      const slider = document.getElementById(sliderId);
+      const slides = Array.from(slider.children);
+
+      slides.forEach(slide => {
+        const clone = slide.cloneNode(true);
+        slider.appendChild(clone);
+      });
+
+      return {
+        slider: slider,
+        totalSlides: slides.length,
+        index: 0
+      };
     }
+
+    const projectData = setupInfiniteSlider("projectSlider");
+    const testimonialData = setupInfiniteSlider("testimonialSlider");
+    const certificationData = setupInfiniteSlider("certificationSlider");
+
+    const slideWidth = 338;
+    let projectInterval;
+    let testimonialInterval;
+    let certificationInterval;
+
+    function moveSlider(data, direction) {
+      data.index += direction;
+      data.slider.style.transition = "transform 0.6s ease";
+      data.slider.style.transform = `translateX(-${data.index * slideWidth}px)`;
+
+      if (data.index >= data.totalSlides) {
+        setTimeout(() => {
+          data.slider.style.transition = "none";
+          data.index = 0;
+          data.slider.style.transform = `translateX(0px)`;
+        }, 650);
+      }
+
+      if (data.index < 0) {
+        data.slider.style.transition = "none";
+        data.index = data.totalSlides - 1;
+        data.slider.style.transform = `translateX(-${data.index * slideWidth}px)`;
+      }
+    }
+
+    function startAutoSlides() {
+      projectInterval = setInterval(() => moveSlider(projectData, 1), 3000);
+      testimonialInterval = setInterval(() => moveSlider(testimonialData, 1), 3500);
+      certificationInterval = setInterval(() => moveSlider(certificationData, 1), 3200);
+    }
+
+    function stopAutoSlides() {
+      clearInterval(projectInterval);
+      clearInterval(testimonialInterval);
+      clearInterval(certificationInterval);
+    }
+
+    function manualSlide(type, direction) {
+      if (type === "project") {
+        moveSlider(projectData, direction);
+      } else if (type === "testimonial") {
+        moveSlider(testimonialData, direction);
+      } else if (type === "certification") {
+        moveSlider(certificationData, direction);
+      }
+    }
+
+    document.querySelector("#projects .slider-wrapper").addEventListener("mouseenter", stopAutoSlides);
+    document.querySelector("#projects .slider-wrapper").addEventListener("mouseleave", startAutoSlides);
+
+    document.querySelector("#testimonials .slider-wrapper").addEventListener("mouseenter", stopAutoSlides);
+    document.querySelector("#testimonials .slider-wrapper").addEventListener("mouseleave", startAutoSlides);
+
+    document.querySelector("#certifications .slider-wrapper").addEventListener("mouseenter", stopAutoSlides);
+    document.querySelector("#certifications .slider-wrapper").addEventListener("mouseleave", startAutoSlides);
+
+    startAutoSlides();
   </script>
 
 </body>
