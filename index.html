@@ -2,130 +2,867 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Akhil Chinta | Performance Marketing Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akhil Chinta | Performance Marketing Portfolio</title>
 
-  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #060813;
+      --card: rgba(255, 255, 255, 0.06);
+      --card2: rgba(255, 255, 255, 0.09);
+      --text: #EAF0FF;
+      --muted: #C9D4FF;
+      --line: rgba(255, 255, 255, 0.10);
+      --primary: #7C3AED;
+      --secondary: #06B6D4;
+      --accent: #F43F5E;
+      --radius: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    section {
+      scroll-margin-top: 95px;
+      margin-top: 80px;
+    }
+
+    /* Animated Gradient Background */
+    .animated-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -10;
+      background: linear-gradient(120deg,
+        rgba(124,58,237,0.35),
+        rgba(6,182,212,0.25),
+        rgba(244,63,94,0.22),
+        rgba(124,58,237,0.35)
+      );
+      background-size: 300% 300%;
+      animation: gradientMove 12s ease infinite;
+      filter: blur(90px);
+      opacity: 0.75;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Floating Blobs */
+    .blob {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.55;
+      z-index: -2;
+      animation: floaty 10s infinite ease-in-out;
+    }
+
+    .blob.one {
+      top: -100px;
+      left: -100px;
+      background: rgba(124, 58, 237, 0.7);
+    }
+
+    .blob.two {
+      top: 140px;
+      right: -140px;
+      background: rgba(6, 182, 212, 0.7);
+      animation-delay: 2s;
+    }
+
+    .blob.three {
+      bottom: -140px;
+      left: 35%;
+      background: rgba(244, 63, 94, 0.6);
+      animation-delay: 4s;
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+      50% { transform: translateY(-30px) translateX(20px) scale(1.08); }
+    }
+
+    /* Cursor Glow */
+    .cursor-glow {
+      position: fixed;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+      background: radial-gradient(circle, rgba(6,182,212,0.25), transparent 65%);
+      transform: translate(-50%, -50%);
+      filter: blur(20px);
+      opacity: 0.85;
+    }
+
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(6, 8, 19, 0.65);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    .tag {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .tag i {
+      color: var(--secondary);
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.05;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--secondary), var(--primary), var(--accent));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .typing {
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(234,240,255,0.95);
+      margin-bottom: 16px;
+      min-height: 24px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .cta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+    }
+
+    .btn.primary {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border: none;
+      box-shadow: 0 0 20px rgba(124,58,237,0.35);
+    }
+
+    .btn.primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 35px rgba(6,182,212,0.45);
+    }
+
+    .btn.outline {
+      background: rgba(255,255,255,0.04);
+    }
+
+    .btn.outline:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* Profile Card */
+    .profile-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 0 35px rgba(0,0,0,0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.08), transparent);
+      transform: translateX(-100%);
+      animation: shine 5s infinite;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-120%); }
+      60% { transform: translateX(120%); }
+      100% { transform: translateX(120%); }
+    }
+
+    .profile-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      font-weight: 900;
+    }
+
+    .profile-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .info {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .info div {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .info i {
+      color: var(--secondary);
+      width: 18px;
+    }
+
+    .info a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 10px;
+      font-weight: 900;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      margin-bottom: 28px;
+      line-height: 1.7;
+      font-size: 15px;
+      max-width: 800px;
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      transition: 0.25s;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      text-align: left;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(6,182,212,0.45);
+      box-shadow: 0 0 25px rgba(6,182,212,0.18);
+    }
+
+    .card i {
+      font-size: 22px;
+      color: var(--secondary);
+      margin-bottom: 12px;
+    }
+
+    .card h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      font-weight: 900;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Experience */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .job {
+      padding: 20px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      transition: 0.25s;
+    }
+
+    .job:hover {
+      border-color: rgba(124,58,237,0.5);
+      box-shadow: 0 0 22px rgba(124,58,237,0.15);
+      transform: translateY(-3px);
+    }
+
+    .job h3 {
+      font-size: 16px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .job span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .job ul {
+      margin-top: 12px;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* Skills Tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      font-size: 13px;
+      color: var(--muted);
+      transition: 0.2s;
+      cursor: default;
+    }
+
+    .pill:hover {
+      color: white;
+      border-color: rgba(6,182,212,0.5);
+      box-shadow: 0 0 18px rgba(6,182,212,0.18);
+      transform: translateY(-2px);
+    }
+
+    /* Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 25px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 80px;
+    }
+
+    @media(max-width: 950px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
-<body data-theme="dark">
+<body>
 
-<canvas id="castleCanvas"></canvas>
+  <div class="animated-bg"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-<!-- THEME TOGGLE -->
-<button class="theme-toggle" id="themeToggle">☀</button>
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+  <div class="blob three"></div>
 
-<header class="header glass">
-  <div class="header-content fade-in">
-    <h1>Akhil Chinta</h1>
-    <p class="role">Performance Marketing Manager</p>
-    <p class="meta">Hyderabad, India</p>
-    <p class="meta">+91 95534 25673 • chakhil220@gmail.com</p>
-    <a href="https://linkedin.com/in/akhil-chinta-94b033181" target="_blank">
-      linkedin.com/in/akhil-chinta-94b033181
-    </a>
+  <nav>
+    <div class="nav-container">
+      <div class="logo">AKHIL CHINTA<span>.</span></div>
+
+      <div class="nav-links">
+        <a href="#about">Profile</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="reveal">
+        <div class="tag">
+          <i class="fa-solid fa-chart-line"></i>
+          Certified Performance Marketing Specialist
+        </div>
+
+        <h1>
+          Hi, I’m <span>Akhil Chinta</span><br>
+          <span style="font-size: 0.85em;">I build growth systems.</span>
+        </h1>
+
+        <div class="typing" id="typingText"></div>
+
+        <p>
+          Performance Marketing Manager skilled in <b>Google Ads</b>, <b>Meta Ads</b>,
+          <b>YouTube SEO</b>, and <b>GA4 Measurement</b>. I optimize campaigns with a strong
+          analytics foundation from my Data Analyst experience at Wipro.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="#contact">
+            <i class="fa-solid fa-paper-plane"></i> Hire Me
+          </a>
+
+          <a class="btn outline" href="https://linkedin.com/in/akhil-chinta-94b033181" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+
+          <a class="btn outline" href="resume.pdf" download>
+            <i class="fa-solid fa-download"></i> Download Resume
+          </a>
+        </div>
+      </div>
+
+      <div class="profile-card reveal">
+        <h3>Quick Info</h3>
+        <p>ROI-focused marketer with analytics expertise and strong campaign execution skills.</p>
+
+        <div class="info">
+          <div><i class="fa-solid fa-location-dot"></i> Hyderabad, India</div>
+          <div><i class="fa-solid fa-phone"></i> <a href="tel:+919553425673">+91 95534 25673</a></div>
+          <div><i class="fa-solid fa-envelope"></i> <a href="mailto:chakhil220@gmail.com">chakhil220@gmail.com</a></div>
+          <div><i class="fa-brands fa-linkedin"></i>
+            <a href="https://linkedin.com/in/akhil-chinta-94b033181" target="_blank" rel="noopener noreferrer">
+              linkedin.com/in/akhil-chinta
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+    <section id="about" class="reveal">
+      <h2 class="section-title">Profile</h2>
+      <p class="section-sub">
+        Certified Performance Marketing Specialist with expertise in Google Ads, Meta Ads, and YouTube SEO.
+        I focus on ROI-driven growth, analytics, conversion tracking, and scalable performance strategies.
+        Former Wipro Data Analyst with strong reporting and optimization skills.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <i class="fa-solid fa-bullseye"></i>
+          <h4>ROI Driven Growth</h4>
+          <p>Scaling performance campaigns using structured testing, optimization, and retargeting strategy.</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-chart-simple"></i>
+          <h4>Analytics + Measurement</h4>
+          <p>Tracking and reporting using GA4, conversion tracking, KPI dashboards, and performance insights.</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-brands fa-youtube"></i>
+          <h4>YouTube Growth</h4>
+          <p>CTR optimization, retention analysis, SEO improvement, and creator studio performance strategy.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="reveal">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-sub">
+        Tools and skillsets I use to plan, launch, optimize and scale campaigns.
+      </p>
+
+      <div class="tags">
+        <div class="pill">Google Ads</div>
+        <div class="pill">Meta Ads</div>
+        <div class="pill">YouTube SEO</div>
+        <div class="pill">Campaign Optimization</div>
+        <div class="pill">Retargeting Strategy</div>
+        <div class="pill">Landing Page Optimization</div>
+        <div class="pill">GA4</div>
+        <div class="pill">Creator Studio Analytics</div>
+        <div class="pill">Conversion Tracking</div>
+        <div class="pill">KPI Reporting</div>
+        <div class="pill">Python</div>
+        <div class="pill">SQL</div>
+        <div class="pill">Power BI</div>
+        <div class="pill">Tableau</div>
+        <div class="pill">Audience Research</div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="reveal">
+      <h2 class="section-title">Experience</h2>
+      <p class="section-sub">
+        My professional journey across performance marketing and analytics.
+      </p>
+
+      <div class="timeline">
+
+        <div class="job">
+          <h3>Performance Marketing Manager – PS Tushar Food</h3>
+          <span>Dec 2024 – Present</span>
+
+          <ul>
+            <li>YouTube growth strategy: SEO, CTR, retention, watch-time optimization</li>
+            <li>Google Ads & Meta Ads campaign setup, scaling, and optimization</li>
+            <li>Video campaigns, traffic campaigns, and retargeting funnels</li>
+            <li>Website, blogs, and branded content maintenance</li>
+            <li>Landing page optimization for conversions</li>
+            <li>Creator Studio analysis: engagement, retention, CTR, audience insights</li>
+            <li>Competitor research, keyword research, and audience targeting</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <h3>Project Engineer (Data Analyst) – Wipro Limited</h3>
+          <span>Mar 2022 – Nov 2024</span>
+
+          <ul>
+            <li>Built automated dashboards using Python, SQL, Power BI, Tableau</li>
+            <li>Performed operational data analysis and reporting automation</li>
+            <li>Generated business insights for performance improvements</li>
+            <li>Improved reporting accuracy and workflow automation</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="reveal">
+      <h2 class="section-title">Education</h2>
+      <p class="section-sub">
+        My academic foundation in Computer Science and analytics.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <h4>B.Tech – Computer Science & Engineering</h4>
+          <p>Bharath Institute of Higher Education and Research (2021) | CGPA: 7.2</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-school"></i>
+          <h4>MPC – Intermediate</h4>
+          <p>Sri Chaitanya Junior College (2017) | GPA: 8.0</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-book"></i>
+          <h4>Class X</h4>
+          <p>Bhashyam Public School (2015) | GPA: 9.0</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="reveal">
+      <h2 class="section-title">Certifications</h2>
+      <p class="section-sub">
+        Professional certifications that validate my expertise in marketing and analytics.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <i class="fa-brands fa-google"></i>
+          <h4>Google Analytics 4 (GA4)</h4>
+          <p>Certified in GA4 tracking, reporting, and performance insights.</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-brands fa-google"></i>
+          <h4>Google Ads Measurement</h4>
+          <p>Conversion tracking, attribution, and measurement optimization.</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-brands fa-google"></i>
+          <h4>Google Ads Search</h4>
+          <p>Search campaign creation, bidding strategies, and optimization.</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-brands fa-google"></i>
+          <h4>Google Ads Video</h4>
+          <p>YouTube video ads, targeting, and performance improvement.</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-brands fa-hubspot"></i>
+          <h4>HubSpot Digital Marketing</h4>
+          <p>Digital marketing strategy, inbound growth, and campaign planning.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">
+        Let’s connect for work opportunities, collaborations, or growth projects.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <i class="fa-solid fa-envelope"></i>
+          <h4>Email</h4>
+          <p>
+            <a style="color:white;text-decoration:none;font-weight:800;" href="mailto:chakhil220@gmail.com">
+              chakhil220@gmail.com
+            </a>
+          </p>
+        </div>
+
+        <div class="card">
+          <i class="fa-brands fa-linkedin"></i>
+          <h4>LinkedIn</h4>
+          <p>
+            <a style="color:white;text-decoration:none;font-weight:800;" target="_blank" rel="noopener noreferrer"
+              href="https://linkedin.com/in/akhil-chinta-94b033181">
+              View Profile
+            </a>
+          </p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-phone"></i>
+          <h4>Phone</h4>
+          <p>
+            <a style="color:white;text-decoration:none;font-weight:800;" href="tel:+919553425673">
+              +91 95534 25673
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+
   </div>
-</header>
 
-<!-- FUNNEL LINE -->
-<div class="funnel"></div>
+  <footer>
+    © <span id="year"></span> Akhil Chinta • Performance Marketing Portfolio • Hyderabad, India
+  </footer>
 
-<main class="container">
+  <script>
+    document.getElementById("year").innerText = new Date().getFullYear();
 
-  <section class="section reveal">
-    <h2>Profile</h2>
-    <ul>
-      <li>Certified Performance Marketing Specialist</li>
-      <li>YouTube SEO, Google Ads, Meta Ads</li>
-      <li>ROI-driven campaign optimization</li>
-      <li>GA4 & Google Ads Measurement certified</li>
-      <li>Strong analytics background</li>
-      <li>Former Wipro Data Analyst</li>
-    </ul>
-  </section>
+    const cursorGlow = document.getElementById("cursorGlow");
+    document.addEventListener("mousemove", (e) => {
+      cursorGlow.style.left = e.clientX + "px";
+      cursorGlow.style.top = e.clientY + "px";
+    });
 
-  <section class="section reveal">
-    <h2>Experience</h2>
+    const roles = [
+      "Google Ads Specialist ⚡",
+      "Meta Ads Performance Marketer 🎯",
+      "YouTube SEO Growth Strategist 🚀",
+      "GA4 + Analytics Focused Marketer 📊",
+      "Former Wipro Data Analyst 🧠"
+    ];
 
-    <div class="experience card">
-      <div class="exp-header">
-        <h3>Performance Marketing Manager – PS Tushar Food</h3>
-        <span>Dec 2024 – Present</span>
-      </div>
-      <ul>
-        <li>YouTube SEO, CVR, retention, watch-time</li>
-        <li>Google Ads & Meta Ads</li>
-        <li>Video, traffic, retargeting campaigns</li>
-        <li>Landing page optimization</li>
-        <li>Creator Studio analysis</li>
-      </ul>
-    </div>
+    let roleIndex = 0;
+    let charIndex = 0;
+    let typingForward = true;
 
-    <div class="experience card">
-      <div class="exp-header">
-        <h3>Project Engineer (Data Analyst) – Wipro Limited</h3>
-        <span>Mar 2022 – Nov 2024</span>
-      </div>
-      <ul>
-        <li>Python, SQL, Power BI, Tableau dashboards</li>
-        <li>Operational data analysis</li>
-        <li>Business performance insights</li>
-        <li>Workflow automation & reporting accuracy</li>
-      </ul>
-    </div>
-  </section>
+    const typingElement = document.getElementById("typingText");
 
-  <section class="section reveal">
-    <h2>Skills</h2>
-    <div class="skills">
-      <span>Performance Marketing</span>
-      <span>Google Ads</span>
-      <span>Meta Ads</span>
-      <span>YouTube SEO</span>
-      <span>Retargeting</span>
-      <span>GA4</span>
-      <span>Conversion Tracking</span>
-      <span>KPI Reporting</span>
-      <span>Python</span>
-      <span>SQL</span>
-      <span>Power BI</span>
-      <span>Tableau</span>
-      <span>Strategy</span>
-      <span>Communication</span>
-      <span>Problem Solving</span>
-    </div>
-  </section>
+    function typeEffect() {
+      const currentRole = roles[roleIndex];
 
-  <section class="section reveal">
-    <h2>Education</h2>
-    <p>B.Tech CSE – Bharath Institute of heigher education and research (2021) | CGPA: 7.2</p>
-    <p>MPC – Sri Chaitanya Junior College (2017) | GPA: 8.0</p>
-    <p>Class X – Bhashyam Public School (2015) | GPA: 9.0</p>
-  </section>
+      if (typingForward) {
+        charIndex++;
+        typingElement.innerHTML = currentRole.substring(0, charIndex);
 
-  <section class="section reveal">
-    <h2>Certifications</h2>
-    <ul>
-      <li>Google Analytics 4 (GA4)</li>
-      <li>Google Ads Measurement</li>
-      <li>Google Ads Search</li>
-      <li>Google Ads Video</li>
-      <li>HubSpot Digital Marketing</li>
-    </ul>
-  </section>
+        if (charIndex === currentRole.length) {
+          typingForward = false;
+          setTimeout(typeEffect, 1200);
+          return;
+        }
+      } else {
+        charIndex--;
+        typingElement.innerHTML = currentRole.substring(0, charIndex);
 
-</main>
+        if (charIndex === 0) {
+          typingForward = true;
+          roleIndex = (roleIndex + 1) % roles.length;
+        }
+      }
 
-<footer class="footer">
-  © Akhil Chinta • Performance Marketing Portfolio
-</footer>
+      setTimeout(typeEffect, typingForward ? 65 : 35);
+    }
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
-<script src="main.js"></script>
+    typeEffect();
+
+    const reveals = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+      const windowHeight = window.innerHeight;
+
+      for (const reveal of reveals) {
+        const elementTop = reveal.getBoundingClientRect().top;
+        const elementVisible = 120;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveal.classList.add("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+  </script>
+
 </body>
 </html>
