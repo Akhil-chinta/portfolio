@@ -46,7 +46,7 @@
 
     section {
       scroll-margin-top: 95px;
-      margin-top: 80px;
+      margin-top: 90px;
     }
 
     /* Animated Gradient Background */
@@ -220,7 +220,7 @@
 
     .typing {
       font-size: 18px;
-      font-weight: 600;
+      font-weight: 700;
       color: rgba(234,240,255,0.95);
       margin-bottom: 16px;
       min-height: 24px;
@@ -335,7 +335,7 @@
     .info a {
       color: var(--text);
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .info a:hover {
@@ -344,7 +344,7 @@
 
     /* Section Titles */
     .section-title {
-      font-size: 28px;
+      font-size: 30px;
       margin-bottom: 10px;
       font-weight: 900;
     }
@@ -354,7 +354,7 @@
       margin-bottom: 28px;
       line-height: 1.7;
       font-size: 15px;
-      max-width: 800px;
+      max-width: 850px;
     }
 
     /* Grid */
@@ -400,6 +400,90 @@
       line-height: 1.6;
     }
 
+    /* Highlight Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .stat-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: 0.25s;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-7px);
+      border-color: rgba(124,58,237,0.5);
+      box-shadow: 0 0 25px rgba(124,58,237,0.18);
+    }
+
+    .stat-number {
+      font-size: 26px;
+      font-weight: 900;
+      margin-bottom: 6px;
+      background: linear-gradient(90deg, var(--secondary), var(--primary), var(--accent));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-weight: 700;
+    }
+
+    /* Case Studies */
+    .case-card {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      padding: 18px;
+      cursor: pointer;
+      transition: 0.25s;
+      text-align: left;
+      color: var(--text);
+      outline: none;
+    }
+
+    .case-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(6,182,212,0.45);
+      box-shadow: 0 0 25px rgba(6,182,212,0.18);
+    }
+
+    .case-card i {
+      font-size: 22px;
+      color: var(--secondary);
+      margin-bottom: 12px;
+    }
+
+    .case-card h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      font-weight: 900;
+    }
+
+    .case-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .case-meta {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #D7E2FF;
+      font-weight: 800;
+    }
+
     /* Experience */
     .timeline {
       display: flex;
@@ -408,7 +492,7 @@
     }
 
     .job {
-      padding: 20px;
+      padding: 22px;
       border-radius: var(--radius);
       background: rgba(255,255,255,0.05);
       border: 1px solid var(--line);
@@ -430,6 +514,7 @@
     .job span {
       font-size: 13px;
       color: var(--muted);
+      font-weight: 700;
     }
 
     .job ul {
@@ -456,12 +541,76 @@
       color: var(--muted);
       transition: 0.2s;
       cursor: default;
+      font-weight: 700;
     }
 
     .pill:hover {
       color: white;
       border-color: rgba(6,182,212,0.5);
       box-shadow: 0 0 18px rgba(6,182,212,0.18);
+      transform: translateY(-2px);
+    }
+
+    /* Dialog Modal */
+    dialog.modal {
+      width: 100%;
+      max-width: 850px;
+      border-radius: 18px;
+      background: rgba(15, 18, 35, 0.95);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 22px;
+      box-shadow: 0 0 45px rgba(0,0,0,0.75);
+      animation: pop 0.25s ease;
+      color: var(--text);
+      position: relative;
+    }
+
+    dialog::backdrop {
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(10px);
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal h2 {
+      font-size: 20px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .modal p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+
+    .modal ul {
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.92);
+      color: #0B0F1A;
+      padding: 8px 10px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+      font-weight: 900;
+    }
+
+    .close-btn:hover {
+      background: rgba(255,255,255,1);
       transform: translateY(-2px);
     }
 
@@ -499,6 +648,10 @@
         grid-template-columns: 1fr;
       }
 
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
       .nav-links {
         display: none;
       }
@@ -520,11 +673,13 @@
       <div class="logo">AKHIL CHINTA<span>.</span></div>
 
       <div class="nav-links">
-        <a href="#about">Profile</a>
+        <a href="#about">About</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#case-studies">Case Studies</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
         <a href="#certifications">Certifications</a>
+        <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -542,15 +697,15 @@
 
         <h1>
           Hi, I’m <span>Akhil Chinta</span><br>
-          <span style="font-size: 0.85em;">I build growth systems.</span>
+          <span style="font-size: 0.85em;">I scale campaigns with data.</span>
         </h1>
 
         <div class="typing" id="typingText"></div>
 
         <p>
           Performance Marketing Manager skilled in <b>Google Ads</b>, <b>Meta Ads</b>,
-          <b>YouTube SEO</b>, and <b>GA4 Measurement</b>. I optimize campaigns with a strong
-          analytics foundation from my Data Analyst experience at Wipro.
+          <b>YouTube SEO</b>, and <b>GA4 Measurement</b>.  
+          I combine marketing strategy + analytics thinking to drive ROI and scalable growth systems.
         </p>
 
         <div class="cta">
@@ -562,7 +717,7 @@
             <i class="fa-brands fa-linkedin"></i> LinkedIn
           </a>
 
-          <a class="btn outline" href="resume.pdf" download>
+          <a class="btn outline" href="./resume.pdf" download="Akhil_Chinta_Resume.pdf">
             <i class="fa-solid fa-download"></i> Download Resume
           </a>
         </div>
@@ -585,41 +740,104 @@
       </div>
     </div>
 
-    <!-- PROFILE -->
+    <!-- ABOUT -->
     <section id="about" class="reveal">
-      <h2 class="section-title">Profile</h2>
+      <h2 class="section-title">About Me</h2>
       <p class="section-sub">
-        Certified Performance Marketing Specialist with expertise in Google Ads, Meta Ads, and YouTube SEO.
-        I focus on ROI-driven growth, analytics, conversion tracking, and scalable performance strategies.
-        Former Wipro Data Analyst with strong reporting and optimization skills.
+        I’m a performance marketer who focuses on <b>ROI-first growth</b>.  
+        My strength is combining campaign execution with analytics-driven decisions.
+        I build ad systems that scale using <b>tracking, creative testing, funnel optimization, and retargeting</b>.
       </p>
 
       <div class="grid">
         <div class="card">
           <i class="fa-solid fa-bullseye"></i>
-          <h4>ROI Driven Growth</h4>
-          <p>Scaling performance campaigns using structured testing, optimization, and retargeting strategy.</p>
+          <h4>ROI Focused Execution</h4>
+          <p>I optimize campaigns based on CPA, ROAS, CTR, CVR and conversion data, not guesswork.</p>
         </div>
 
         <div class="card">
           <i class="fa-solid fa-chart-simple"></i>
-          <h4>Analytics + Measurement</h4>
-          <p>Tracking and reporting using GA4, conversion tracking, KPI dashboards, and performance insights.</p>
+          <h4>Measurement & Analytics</h4>
+          <p>GA4 tracking, event setup, conversion attribution, and reporting dashboards for decision making.</p>
         </div>
 
         <div class="card">
           <i class="fa-brands fa-youtube"></i>
-          <h4>YouTube Growth</h4>
-          <p>CTR optimization, retention analysis, SEO improvement, and creator studio performance strategy.</p>
+          <h4>YouTube Growth Strategy</h4>
+          <p>CTR improvement, retention optimization, SEO strategy and Creator Studio analytics insights.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section id="highlights" class="reveal">
+      <h2 class="section-title">Growth Highlights</h2>
+      <p class="section-sub">
+        A snapshot of what I focus on: growth metrics, optimization, and scalable campaign systems.
+      </p>
+
+      <div class="stats">
+        <div class="stat-box">
+          <div class="stat-number">ROI</div>
+          <div class="stat-label">Campaign optimization mindset focused on profitability</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-number">GA4</div>
+          <div class="stat-label">Tracking + measurement expertise with conversion reporting</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-number">Ads</div>
+          <div class="stat-label">Google Ads + Meta Ads scaling and retargeting funnels</div>
+        </div>
+
+        <div class="stat-box">
+          <div class="stat-number">SEO</div>
+          <div class="stat-label">YouTube SEO + retention strategy for channel growth</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="case-studies" class="reveal">
+      <h2 class="section-title">Featured Case Studies</h2>
+      <p class="section-sub">
+        Portfolio-style projects that showcase my campaign strategy, analytics, and optimization process.
+      </p>
+
+      <div class="grid">
+
+        <button class="case-card" onclick="openModal('case1')">
+          <i class="fa-solid fa-video"></i>
+          <h4>YouTube Growth Optimization</h4>
+          <p>Improved CTR, retention and engagement using SEO + Creator Studio insights.</p>
+          <div class="case-meta">SEO • CTR • Retention • Watch-Time</div>
+        </button>
+
+        <button class="case-card" onclick="openModal('case2')">
+          <i class="fa-brands fa-google"></i>
+          <h4>Google Ads Campaign Scaling</h4>
+          <p>Search + video campaigns optimized using tracking, keywords and conversion signals.</p>
+          <div class="case-meta">Google Ads • Search • Video • ROI</div>
+        </button>
+
+        <button class="case-card" onclick="openModal('case3')">
+          <i class="fa-brands fa-facebook"></i>
+          <h4>Meta Ads Retargeting Funnel</h4>
+          <p>Designed retargeting audiences and optimized creatives for better conversions.</p>
+          <div class="case-meta">Meta Ads • Retargeting • Funnel Strategy</div>
+        </button>
+
       </div>
     </section>
 
     <!-- SKILLS -->
     <section id="skills" class="reveal">
-      <h2 class="section-title">Skills</h2>
+      <h2 class="section-title">Skill Stack</h2>
       <p class="section-sub">
-        Tools and skillsets I use to plan, launch, optimize and scale campaigns.
+        The tools and skills I use daily to manage and scale performance marketing campaigns.
       </p>
 
       <div class="tags">
@@ -630,22 +848,23 @@
         <div class="pill">Retargeting Strategy</div>
         <div class="pill">Landing Page Optimization</div>
         <div class="pill">GA4</div>
-        <div class="pill">Creator Studio Analytics</div>
         <div class="pill">Conversion Tracking</div>
+        <div class="pill">Creator Studio Analytics</div>
         <div class="pill">KPI Reporting</div>
         <div class="pill">Python</div>
         <div class="pill">SQL</div>
         <div class="pill">Power BI</div>
         <div class="pill">Tableau</div>
+        <div class="pill">Keyword Research</div>
         <div class="pill">Audience Research</div>
       </div>
     </section>
 
     <!-- EXPERIENCE -->
     <section id="experience" class="reveal">
-      <h2 class="section-title">Experience</h2>
+      <h2 class="section-title">Career Timeline</h2>
       <p class="section-sub">
-        My professional journey across performance marketing and analytics.
+        A quick view of my journey across performance marketing and analytics.
       </p>
 
       <div class="timeline">
@@ -655,13 +874,11 @@
           <span>Dec 2024 – Present</span>
 
           <ul>
-            <li>YouTube growth strategy: SEO, CTR, retention, watch-time optimization</li>
-            <li>Google Ads & Meta Ads campaign setup, scaling, and optimization</li>
-            <li>Video campaigns, traffic campaigns, and retargeting funnels</li>
-            <li>Website, blogs, and branded content maintenance</li>
-            <li>Landing page optimization for conversions</li>
-            <li>Creator Studio analysis: engagement, retention, CTR, audience insights</li>
-            <li>Competitor research, keyword research, and audience targeting</li>
+            <li>YouTube SEO strategy: CTR, retention, watch-time optimization</li>
+            <li>Google Ads + Meta Ads campaign setup, scaling and optimization</li>
+            <li>Traffic, video and retargeting campaigns</li>
+            <li>Landing page optimization for conversion improvement</li>
+            <li>Competitor research + keyword + audience targeting</li>
           </ul>
         </div>
 
@@ -670,13 +887,47 @@
           <span>Mar 2022 – Nov 2024</span>
 
           <ul>
-            <li>Built automated dashboards using Python, SQL, Power BI, Tableau</li>
-            <li>Performed operational data analysis and reporting automation</li>
-            <li>Generated business insights for performance improvements</li>
-            <li>Improved reporting accuracy and workflow automation</li>
+            <li>Built dashboards using Python, SQL, Power BI, Tableau</li>
+            <li>Operational data analysis + reporting automation</li>
+            <li>Delivered performance insights for business improvements</li>
+            <li>Improved workflow efficiency using automation</li>
           </ul>
         </div>
 
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="reveal">
+      <h2 class="section-title">Certifications</h2>
+      <p class="section-sub">
+        Verified certifications that strengthen my performance marketing expertise.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <i class="fa-brands fa-google"></i>
+          <h4>Google Analytics 4 (GA4)</h4>
+          <p>Certified in GA4 tracking, reporting and performance insights.</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-brands fa-google"></i>
+          <h4>Google Ads Measurement</h4>
+          <p>Conversion tracking, attribution and measurement optimization.</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-brands fa-google"></i>
+          <h4>Google Ads Search & Video</h4>
+          <p>Search campaign strategy + video campaign optimization expertise.</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-brands fa-hubspot"></i>
+          <h4>HubSpot Digital Marketing</h4>
+          <p>Certified in digital marketing fundamentals and inbound strategy.</p>
+        </div>
       </div>
     </section>
 
@@ -684,7 +935,7 @@
     <section id="education" class="reveal">
       <h2 class="section-title">Education</h2>
       <p class="section-sub">
-        My academic foundation in Computer Science and analytics.
+        Academic foundation that built my technical and analytical background.
       </p>
 
       <div class="grid">
@@ -696,63 +947,24 @@
 
         <div class="card">
           <i class="fa-solid fa-school"></i>
-          <h4>MPC – Intermediate</h4>
-          <p>Sri Chaitanya Junior College (2017) | GPA: 8.0</p>
+          <h4>MPC – Sri Chaitanya Junior College</h4>
+          <p>(2017) | GPA: 8.0</p>
         </div>
 
         <div class="card">
           <i class="fa-solid fa-book"></i>
-          <h4>Class X</h4>
-          <p>Bhashyam Public School (2015) | GPA: 9.0</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CERTIFICATIONS -->
-    <section id="certifications" class="reveal">
-      <h2 class="section-title">Certifications</h2>
-      <p class="section-sub">
-        Professional certifications that validate my expertise in marketing and analytics.
-      </p>
-
-      <div class="grid">
-        <div class="card">
-          <i class="fa-brands fa-google"></i>
-          <h4>Google Analytics 4 (GA4)</h4>
-          <p>Certified in GA4 tracking, reporting, and performance insights.</p>
-        </div>
-
-        <div class="card">
-          <i class="fa-brands fa-google"></i>
-          <h4>Google Ads Measurement</h4>
-          <p>Conversion tracking, attribution, and measurement optimization.</p>
-        </div>
-
-        <div class="card">
-          <i class="fa-brands fa-google"></i>
-          <h4>Google Ads Search</h4>
-          <p>Search campaign creation, bidding strategies, and optimization.</p>
-        </div>
-
-        <div class="card">
-          <i class="fa-brands fa-google"></i>
-          <h4>Google Ads Video</h4>
-          <p>YouTube video ads, targeting, and performance improvement.</p>
-        </div>
-
-        <div class="card">
-          <i class="fa-brands fa-hubspot"></i>
-          <h4>HubSpot Digital Marketing</h4>
-          <p>Digital marketing strategy, inbound growth, and campaign planning.</p>
+          <h4>Class X – Bhashyam Public School</h4>
+          <p>(2015) | GPA: 9.0</p>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="reveal">
-      <h2 class="section-title">Contact</h2>
+      <h2 class="section-title">Let’s Work Together</h2>
       <p class="section-sub">
-        Let’s connect for work opportunities, collaborations, or growth projects.
+        Want someone who can scale campaigns with strong analytics and ROI focus?  
+        Let’s connect.
       </p>
 
       <div class="grid">
@@ -760,7 +972,7 @@
           <i class="fa-solid fa-envelope"></i>
           <h4>Email</h4>
           <p>
-            <a style="color:white;text-decoration:none;font-weight:800;" href="mailto:chakhil220@gmail.com">
+            <a style="color:#ffffff;text-decoration:none;font-weight:900;" href="mailto:chakhil220@gmail.com">
               chakhil220@gmail.com
             </a>
           </p>
@@ -770,7 +982,7 @@
           <i class="fa-brands fa-linkedin"></i>
           <h4>LinkedIn</h4>
           <p>
-            <a style="color:white;text-decoration:none;font-weight:800;" target="_blank" rel="noopener noreferrer"
+            <a style="color:#ffffff;text-decoration:none;font-weight:900;" target="_blank" rel="noopener noreferrer"
               href="https://linkedin.com/in/akhil-chinta-94b033181">
               View Profile
             </a>
@@ -781,7 +993,7 @@
           <i class="fa-solid fa-phone"></i>
           <h4>Phone</h4>
           <p>
-            <a style="color:white;text-decoration:none;font-weight:800;" href="tel:+919553425673">
+            <a style="color:#ffffff;text-decoration:none;font-weight:900;" href="tel:+919553425673">
               +91 95534 25673
             </a>
           </p>
@@ -794,6 +1006,49 @@
   <footer>
     © <span id="year"></span> Akhil Chinta • Performance Marketing Portfolio • Hyderabad, India
   </footer>
+
+  <!-- MODALS -->
+  <dialog class="modal" id="case1">
+    <button class="close-btn" onclick="closeModal('case1')">✕</button>
+    <h2>YouTube Growth Optimization</h2>
+    <p>
+      Worked on improving channel performance using SEO strategy, CTR improvements and retention-based optimization.
+    </p>
+    <ul>
+      <li>Keyword research for video titles and descriptions</li>
+      <li>CTR optimization using thumbnails + title testing</li>
+      <li>Retention improvement using hook analysis</li>
+      <li>Creator Studio performance tracking</li>
+    </ul>
+  </dialog>
+
+  <dialog class="modal" id="case2">
+    <button class="close-btn" onclick="closeModal('case2')">✕</button>
+    <h2>Google Ads Campaign Scaling</h2>
+    <p>
+      Managed Google Ads campaigns focused on growth and ROI. Optimized using search intent, tracking and audience targeting.
+    </p>
+    <ul>
+      <li>Search & video campaign optimization</li>
+      <li>Keyword research and bid strategy improvements</li>
+      <li>Conversion tracking setup and measurement</li>
+      <li>Campaign scaling based on performance insights</li>
+    </ul>
+  </dialog>
+
+  <dialog class="modal" id="case3">
+    <button class="close-btn" onclick="closeModal('case3')">✕</button>
+    <h2>Meta Ads Retargeting Funnel</h2>
+    <p>
+      Designed retargeting funnel strategy to increase conversions and reduce cost per lead.
+    </p>
+    <ul>
+      <li>Custom audiences + website visitor retargeting</li>
+      <li>Creative testing and scaling strategy</li>
+      <li>Traffic + conversion campaign structure</li>
+      <li>Performance monitoring and optimization</li>
+    </ul>
+  </dialog>
 
   <script>
     document.getElementById("year").innerText = new Date().getFullYear();
@@ -862,6 +1117,14 @@
 
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
+
+    function openModal(id) {
+      document.getElementById(id).showModal();
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).close();
+    }
   </script>
 
 </body>
