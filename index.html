@@ -520,38 +520,6 @@
       line-height: 1.6;
     }
 
-    /* CERTIFICATE PDF CARD BUTTONS */
-    .cert-btns {
-      display: flex;
-      gap: 10px;
-      margin-top: 14px;
-      flex-wrap: wrap;
-    }
-
-    .cert-btn {
-      flex: 1;
-      text-align: center;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.04);
-      color: white;
-      font-weight: 800;
-      font-size: 13px;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    .cert-btn:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.10);
-    }
-
-    .cert-btn.primary {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      border: none;
-    }
-
     .slider-controls {
       display: flex;
       justify-content: flex-end;
@@ -1054,101 +1022,43 @@
       </div>
     </section>
 
-    <!-- CERTIFICATIONS PDF SLIDER (UPDATED) -->
+    <!-- CERTIFICATIONS (BACK TO OLD STYLE) -->
     <section id="certifications" class="reveal">
       <h2 class="section-title">Certifications</h2>
       <p class="section-sub">
-        Verified certifications (PDF proof). Replace the sample PDF links with your real files.
+        Professional certifications that support my marketing and analytics expertise.
       </p>
 
-      <div class="slider-wrapper">
-        <div class="slider" id="certificationSlider">
-
-          <div class="slide">
-            <img src="./HubSpot Digital Marketing Certification.png" alt="Certificate">
-            <h4>Google Analytics 4 (GA4)</h4>
-            <p>Certification for GA4 reporting, tracking, and performance insights.</p>
-
-            <div class="cert-btns">
-              <a class="cert-btn primary" href="./certificates/ga4.pdf" target="_blank">
-                <i class="fa-solid fa-eye"></i> View PDF
-              </a>
-              <a class="cert-btn" href="./certificates/ga4.pdf" download>
-                <i class="fa-solid fa-download"></i> Download
-              </a>
-            </div>
-          </div>
-
-          <div class="slide">
-            <img src="https://picsum.photos/500/300?random=52" alt="Certificate">
-            <h4>Google Ads Search</h4>
-            <p>Certified in Search Ads setup, keyword targeting, bidding & scaling.</p>
-
-            <div class="cert-btns">
-              <a class="cert-btn primary" href="./certificates/search.pdf" target="_blank">
-                <i class="fa-solid fa-eye"></i> View PDF
-              </a>
-              <a class="cert-btn" href="./certificates/search.pdf" download>
-                <i class="fa-solid fa-download"></i> Download
-              </a>
-            </div>
-          </div>
-
-          <div class="slide">
-            <img src="https://picsum.photos/500/300?random=53" alt="Certificate">
-            <h4>Google Ads Video</h4>
-            <p>Certified in YouTube Ads targeting, optimization and scaling strategy.</p>
-
-            <div class="cert-btns">
-              <a class="cert-btn primary" href="./certificates/video.pdf" target="_blank">
-                <i class="fa-solid fa-eye"></i> View PDF
-              </a>
-              <a class="cert-btn" href="./certificates/video.pdf" download>
-                <i class="fa-solid fa-download"></i> Download
-              </a>
-            </div>
-          </div>
-
-          <div class="slide">
-            <img src="https://picsum.photos/500/300?random=54" alt="Certificate">
-            <h4>Google Ads Measurement</h4>
-            <p>Certified in conversion tracking, attribution and measurement optimization.</p>
-
-            <div class="cert-btns">
-              <a class="cert-btn primary" href="./certificates/measurement.pdf" target="_blank">
-                <i class="fa-solid fa-eye"></i> View PDF
-              </a>
-              <a class="cert-btn" href="./certificates/measurement.pdf" download>
-                <i class="fa-solid fa-download"></i> Download
-              </a>
-            </div>
-          </div>
-
-          <div class="slide">
-            <img src="https://picsum.photos/500/300?random=55" alt="Certificate">
-            <h4>HubSpot Digital Marketing</h4>
-            <p>Certified in digital marketing fundamentals and inbound strategy.</p>
-
-            <div class="cert-btns">
-              <a class="cert-btn primary" href="./certificates/hubspot.pdf" target="_blank">
-                <i class="fa-solid fa-eye"></i> View PDF
-              </a>
-              <a class="cert-btn" href="./certificates/hubspot.pdf" download>
-                <i class="fa-solid fa-download"></i> Download
-              </a>
-            </div>
-          </div>
-
+      <div class="grid">
+        <div class="card">
+          <i class="fa-solid fa-certificate"></i>
+          <h4>Google Analytics 4 (GA4)</h4>
+          <p>Certified in GA4 tracking, reporting, and performance insights.</p>
         </div>
-      </div>
 
-      <div class="slider-controls">
-        <button class="slider-btn" onclick="manualSlide('certification', -1)">
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
-        <button class="slider-btn" onclick="manualSlide('certification', 1)">
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
+        <div class="card">
+          <i class="fa-solid fa-certificate"></i>
+          <h4>Google Ads Measurement</h4>
+          <p>Certified in conversion tracking, attribution, and measurement optimization.</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-certificate"></i>
+          <h4>Google Ads Search</h4>
+          <p>Certified in Search Ads targeting, bidding, and scaling strategy.</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-certificate"></i>
+          <h4>Google Ads Video</h4>
+          <p>Certified in YouTube Ads campaign strategy and optimization.</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-certificate"></i>
+          <h4>HubSpot Digital Marketing</h4>
+          <p>Certified in inbound digital marketing fundamentals and strategy.</p>
+        </div>
       </div>
     </section>
 
@@ -1359,12 +1269,10 @@
 
     const projectData = setupInfiniteSlider("projectSlider");
     const testimonialData = setupInfiniteSlider("testimonialSlider");
-    const certificationData = setupInfiniteSlider("certificationSlider");
 
     const slideWidth = 338;
     let projectInterval;
     let testimonialInterval;
-    let certificationInterval;
 
     function moveSlider(data, direction) {
       data.index += direction;
@@ -1389,13 +1297,11 @@
     function startAutoSlides() {
       projectInterval = setInterval(() => moveSlider(projectData, 1), 3000);
       testimonialInterval = setInterval(() => moveSlider(testimonialData, 1), 3500);
-      certificationInterval = setInterval(() => moveSlider(certificationData, 1), 3200);
     }
 
     function stopAutoSlides() {
       clearInterval(projectInterval);
       clearInterval(testimonialInterval);
-      clearInterval(certificationInterval);
     }
 
     function manualSlide(type, direction) {
@@ -1403,8 +1309,6 @@
         moveSlider(projectData, direction);
       } else if (type === "testimonial") {
         moveSlider(testimonialData, direction);
-      } else if (type === "certification") {
-        moveSlider(certificationData, direction);
       }
     }
 
@@ -1414,17 +1318,8 @@
     document.querySelector("#testimonials .slider-wrapper").addEventListener("mouseenter", stopAutoSlides);
     document.querySelector("#testimonials .slider-wrapper").addEventListener("mouseleave", startAutoSlides);
 
-    document.querySelector("#certifications .slider-wrapper").addEventListener("mouseenter", stopAutoSlides);
-    document.querySelector("#certifications .slider-wrapper").addEventListener("mouseleave", startAutoSlides);
-
     startAutoSlides();
   </script>
 
 </body>
 </html>
-
-
-
-
-
-
